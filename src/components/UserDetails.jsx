@@ -13,7 +13,7 @@ const UserDetails = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://localhost:3001/api/admin/allUsers");
+      const response = await axios.get("https://hr-management-be-2.onrender.com/allUsers");
       setUserData(response.data.users);
     } catch (error) {
       console.error("Error fetching user data:", error);
@@ -22,7 +22,7 @@ const UserDetails = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:3001/api/admin/${id}`);
+      await axios.delete(`https://hr-management-be-2.onrender.com/${id}`);
       setDeleteData(preData => preData.filter(item => item._id !== id));
     } catch (error) {
       console.error("Error deleting user:", error);
