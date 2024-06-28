@@ -1,15 +1,15 @@
 
 import axios from 'axios';
 
-const API_URL = 'http://localhost:3001/api/admin';
+const API_URL = 'https://hr-management-be-2.onrender.com';
 
 const register = (name ,adminname, password, location) => {
-    return axios.post(`${API_URL}/register`, { name, adminname, password,location });
+    return axios.post(`${API_URL}/api/admin/register`, { name, adminname, password,location });
   };
 
 
 const login = (adminname, password) => {
-  return axios.post(`${API_URL}/login`, { adminname, password });
+  return axios.post(`${API_URL}/api/admin/login`, { adminname, password });
 };
 
 // Logout an admin
