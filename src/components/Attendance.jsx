@@ -12,7 +12,7 @@ const Attendance = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://localhost:3001/api/attendance/allAttendance");
+      const response = await axios.get("https://hr-management-be-2.onrender.com/api/attendance/allAttendance");
       setAttendanceData(response.data.attendance);
     } catch (error) {
       console.log("Error fetching attendance data:", error);
@@ -22,7 +22,7 @@ const Attendance = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:3001/api/attendance/${id}`);
+      await axios.delete(`https://hr-management-be-2.onrender.com/api/attendance/${id}`);
       setAttendanceData(prevData => prevData.filter(item => item._id !== id));
     } catch (error) {
       console.error("Error deleting attendance:", error);

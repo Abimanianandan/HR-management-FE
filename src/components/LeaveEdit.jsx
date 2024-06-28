@@ -14,7 +14,7 @@ const LeaveEdit = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:3001/api/leave/${id}`);
+        const response = await axios.get(`https://hr-management-be-2.onrender.com/api/leave/${id}`);
         setEditData(response.data);
         setIsLoading(false);
       } catch (error) {
@@ -35,7 +35,7 @@ const LeaveEdit = () => {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:3001/api/leave/${id}`, editData);
+      await axios.put(`https://hr-management-be-2.onrender.com/api/leave/${id}`, editData);
       navigate("/leave");
     } catch (error) {
       console.error("Error updating salary:", error.response || error.message);

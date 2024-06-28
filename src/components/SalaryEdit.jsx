@@ -18,7 +18,7 @@ const SalaryEdit = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:3001/api/salary/${id}`);
+        const response = await axios.get(`https://hr-management-be-2.onrender.com/api/salary/${id}`);
         setEditData(response.data);
         setIsLoading(false);
       } catch (error) {
@@ -40,7 +40,7 @@ const SalaryEdit = () => {
     e.preventDefault();
     console.log('Submitting:', editData); 
     try {
-      await axios.put(`http://localhost:3001/api/salary/${id}`, editData);
+      await axios.put(`https://hr-management-be-2.onrender.com/api/salary/${id}`, editData);
       navigate("/salary");
     } catch (error) {
       console.error("Error updating salary:", error.response || error.message);

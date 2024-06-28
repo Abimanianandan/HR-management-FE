@@ -12,13 +12,13 @@ const LeaveManagement = () => {
 
   const fetchData = async () => [
     await axios
-      .get("http://localhost:3001/api/leave/allLeaves")
+      .get("https://hr-management-be-2.onrender.com/api/leave/allLeaves")
       .then((res) => setLeaveData(res.data.leave))
       .catch((err) => console.log(err)),
   ];
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:3001/api/leave/${id}`);
+      await axios.delete(`https://hr-management-be-2.onrender.com/api/leave/${id}`);
       setDeleteData(preData => preData.filter(item => item._id !== id));
     } catch (error) {
       console.error("Error deleting leaves:", error);

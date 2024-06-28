@@ -1,66 +1,37 @@
-import { instance, protectedInstance } from "./instance";
 
-// define the user endpoints
-// const baseURL = "http://localhost:3001/api";
+import axios from 'axios';
 
-const userServices = {
-    register: async (name,username,password,location) =>
-    {
-        return await instance.post("/users",{
-            name,
-            username,
-            password,
-            location
-        });
-    },
-    login: async (username,password) =>
-    {
-        return await instance.post("/users/login",{
-            username,
-            password
-        });
-    },
+const API_URL = 'https://hr-management-be-2.onrender.com';
 
-// login : async (username, password) => {
-//   return await instance.post("users/login", { username, password });
-// },
-
-//  setAuthToken : (token) => {
-//   if (token) {
-//     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-//   } else {
-//     delete axios.defaults.headers.common['Authorization'];
-//   }
-// }
-}
+const register = (name ,username, password, location) => {
+    return axios.post(`${API_URL}/api/users/register`, { name, username, password,location });
+  };
 
 
-// export userServices
-export default userServices;
+const login = (username, password) => {
+  return axios.post(`${API_URL}/api/users/login`, { username, password });
+};
 
-// import axios from 'axios';
+// Logout an user
+const logout = () => {
+  // Remove token from local storage or session storage
+  localStorage.removeItem('token'); 
 
-// const API_URL = 'http://localhost:3001/api/users';
+  // Remove Authorization header
+  delete axios.defaults.headers.common['Authorization'];
+};
 
-// const register = (name ,username, password, location) => {
-//     return axios.post(`${API_URL}/register`, { name, username, password,location });
-//   };
+const setAuthToken = (token) => {
+  if (token) {
+    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+  } else {
+    delete axios.defaults.headers.common['Authorization'];
+  }
+};
 
-// const login = (username, password) => {
-//   return axios.post(`${API_URL}/login`, { username, password });
-// };
-
-
-// const setAuthToken = (token) => {
-//   if (token) {
-//     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-//   } else {
-//     delete axios.defaults.headers.common['Authorization'];
-//   }
-// };
-
-// export default {
-//   register,
-//   login,
-//   setAuthToken,
-// };
+export default {
+  register,
+  login,
+  logout,
+  setAuthToken,
+};

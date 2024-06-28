@@ -4,7 +4,7 @@ import axios from 'axios';
 const API_URL = 'https://hr-management-be-2.onrender.com';
 
 const register = (name ,adminname, password, location) => {
-    return axios.post(`${API_URL}/api/admin/register`, { name, adminname, password,location });
+    return axios.post(`${API_URL}/api/admin`, { name, adminname, password,location });
   };
 
 
@@ -15,8 +15,7 @@ const login = (adminname, password) => {
 // Logout an admin
 const logout = () => {
   // Remove token from local storage or session storage
-  localStorage.removeItem('token'); // Assuming you're using localStorage
-
+  localStorage.removeItem('token'); 
   // Remove Authorization header
   delete axios.defaults.headers.common['Authorization'];
 };
