@@ -40,6 +40,7 @@ const Sidebar = () => {
          <h6>Add User +👨‍💼</h6> 
         </Link>
       </li>
+     
       <li>
         <Link to={"logout"} className="nav-link text-info">
           <i class="fa-solid fa-pen-nib" style={{ color: "#FFD43B" }}></i>{" "}

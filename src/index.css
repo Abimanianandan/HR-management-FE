@@ -1,0 +1,12 @@
+.user:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+    border: 3px solid rgb(248, 5, 167);
+}
+.card:hover{
+    cursor: pointer;
+    border: 3px solid rgb(248, 5, 167);
+}
+.nav-link:hover{
+   background-color: rgb(248, 5, 167);
+}
