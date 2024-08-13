@@ -1,7 +1,7 @@
 
 import axios from 'axios';
 
-const API_URL = 'https://hr-management-be-2.onrender.com';
+const API_URL = 'https://hr-management-be.onrender.com';
 
 const register = (name ,username, password, location) => {
     return axios.post(`${API_URL}/api/users/register`, { name, username, password,location });

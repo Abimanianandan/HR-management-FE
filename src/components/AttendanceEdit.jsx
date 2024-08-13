@@ -14,7 +14,7 @@ const AttendanceEdit = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`https://hr-management-be-2.onrender.com/api/attendance/${id}`);
+        const response = await axios.get(`https://hr-management-be.onrender.com/api/attendance/${id}`);
         setEditData(response.data);
         setIsLoading(false);
       } catch (error) {
@@ -35,7 +35,7 @@ const AttendanceEdit = () => {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`https://hr-management-be-2.onrender.com/api/attendance/${id}`, editData);
+      await axios.put(`https://hr-management-be.onrender.com/api/attendance/${id}`, editData);
       navigate("/attendance");
     } catch (error) {
       console.error("Error updating salary:", error.response || error.message);

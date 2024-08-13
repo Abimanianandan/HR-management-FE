@@ -18,7 +18,7 @@ const UserEdit = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`https://hr-management-be-2.onrender.com/api/admin/${id}`);
+        const response = await axios.get(`https://hr-management-be.onrender.com/api/admin/${id}`);
         setEditData(response.data.user);
         setIsLoading(false);
       } catch (error) {
@@ -39,7 +39,7 @@ const UserEdit = () => {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`https://hr-management-be-2.onrender.com/api/admin/${id}`, editData);
+      await axios.put(`https://hr-management-be.onrender.com/api/admin/${id}`, editData);
       navigate("/userDetails");
     } catch (error) {
       console.error("Error updating item:", error);

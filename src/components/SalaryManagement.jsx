@@ -12,13 +12,13 @@ const SalaryManagement = () => {
 
   const fetchData = async () => [
     await axios
-      .get("https://hr-management-be-2.onrender.com/api/salary/allSalary")
+      .get("https://hr-management-be.onrender.com/api/salary/allSalary")
       .then((res) => setSalaryData(res.data.salaries))
       .catch((err) => console.log(err)),
   ];
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`https://hr-management-be-2.onrender.com/api/salary/${id}`);
+      await axios.delete(`https://hr-management-be.onrender.com/api/salary/${id}`);
       setDeleteData(preData => preData.filter(item => item._id !== id));
     } catch (error) {
       console.error("Error deleting salaries:", error);
